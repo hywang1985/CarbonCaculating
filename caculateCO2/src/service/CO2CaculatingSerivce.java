@@ -1,6 +1,5 @@
 package service;
 
-import entity.Device;
 import entity.Refinery;
 
 public class CO2CaculatingSerivce {

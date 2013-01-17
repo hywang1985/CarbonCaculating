@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+
+	<class name="Device" table="device">
+		<id name="id" column="device_id" type="java.lang.String" length="32">
+			<generator class="uuid" />
+		</id>
+		<property name="device_no"/>
+		<property name="name" column="device_name"/>
+		 <set name="ports" inverse="true" cascade="all" lazy="false" table="port">
+                <key column="device_id" not-null="true"></key>
+                <one-to-many class="Port"/>
+          </set>
+	</class>
+
+</hibernate-mapping>
